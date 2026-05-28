@@ -229,8 +229,17 @@ async function generateHackClubAssistantReply({ message, history, modelOverride,
     throw error;
   }
 
-  // Parse the HTTP response body as JSON
-  const payload = await response.json();
+  // Parse the HTTP response body as text first to handle non-JSON errors gracefully
+  const rawBody = await response.text();
+  let payload;
+  try {
+    payload = JSON.parse(rawBody);
+  } catch (err) {
+    if (!response.ok) {
+      throw createHttpError(response.status, `HackClub API Error: ${rawBody.trim().substring(0, 150)}`);
+    }
+    throw createHttpError(502, `HackClub API returned invalid JSON: ${rawBody.trim().substring(0, 150)}`);
+  }
 
   // If the AI API returned an error status (4xx/5xx), throw
   if (!response.ok) {
