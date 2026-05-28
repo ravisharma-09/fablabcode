@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { SlidersHorizontal, ChevronDown, Key, X, Check } from 'lucide-react';
 
 export const MODELS = [
-  { id: 'qwen/qwen3-32b',                                label: 'Qwen: Qwen 3 32B',        tag: 'Free'  },
-  { id: 'qwen/qwen3.6-flash',                            label: 'Qwen: Qwen 3.6 Flash',    tag: 'Fast'  },
-  { id: '~google/gemini-flash-latest',                   label: 'Google: Gemini Flash',    tag: 'Free'  },
-  { id: 'google/gemini-3.1-flash-lite',                  label: 'Google: Gemini 3.1 Lite', tag: 'Cheap' },
+  { id: 'google/gemma-4-26b-a4b-it:free',                label: 'Google: Gemma 4 26B',     tag: 'Free'  },
+  { id: 'qwen/qwen3-32b',                                label: 'Qwen: Qwen 3 32B',        tag: 'Paid'  },
+  { id: 'qwen/qwen3.6-flash',                            label: 'Qwen: Qwen 3.6 Flash',    tag: 'Paid'  },
+  { id: '~google/gemini-flash-latest',                   label: 'Google: Gemini Flash',    tag: 'Paid'  },
+  { id: 'google/gemini-3.1-flash-lite',                  label: 'Google: Gemini 3.1 Lite', tag: 'Paid'  },
   { id: 'deepseek/deepseek-v4-flash:free',               label: 'DeepSeek: V4 Flash',      tag: 'Free'  },
-  { id: 'nvidia/nemotron-3-nano-30b-a3b-reasoning:free', label: 'Nvidia: Nemotron Nano',   tag: 'Free'  },
 ];
 
 function ModelBar({ selectedModel, onModelChange, apiKey, onApiKeyChange }) {

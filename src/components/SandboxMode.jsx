@@ -33,7 +33,7 @@ import { api }     from '../utils/api';  // fetch wrapper (handles JSON and erro
 
 // Default AI model used when the app first loads.
 // This model is free through the HackClub proxy.
-const DEFAULT_MODEL = 'qwen/qwen3-32b';
+const DEFAULT_MODEL = 'google/gemma-4-26b-a4b-it:free';
 
 /**
  * SandboxMode — Container for the AI Sandbox feature.
